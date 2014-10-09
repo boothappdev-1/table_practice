@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tables</title>
+  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <style>
+    td, th {
+      border: thin gray solid;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1>HTML Tables</h1>
+    </div>
+    <p>The way to make a table of data in HTML is to use the <code>&lt;table&gt;&lt;/table&gt;</code> element. And, similar to how we used an <code>li</code> for each list item within a <code>ul</code> (unordered list), we use a <code>tr</code> (table row) for each row within a table:</p>
+
+    <pre>
+    &lt;table&gt;
+      &lt;tr&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;/tr&gt;
+    &lt;/table&gt;</pre>
+
+    <p>But that would just produce empty rows. For each cell in the row, you need to add a <code>&lt;td&gt;</code> (table data) element:</p>
+
+    <pre>
+    &lt;table&gt;
+      &lt;tr&gt;&lt;td&gt;Andrew Luck&lt;/td&gt;&lt;td&gt;Quarterback&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Wes Welker&lt;/td&gt;&lt;td&gt;Wide Receiver&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Matt Forte&lt;/td&gt;&lt;td&gt;Running Back&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;</pre>
+
+    <p>which produces</p>
+
+    <p>
+      <table>
+        <tr><td>Andrew Luck</td><td>Quarterback</td></tr>
+        <tr><td>Wes Welker</td><td>Wide Receiver</td></tr>
+        <tr><td>Matt Forte</td><td>Running Back</td></tr>
+      </table>
+    </p>
+
+    <p>You need to have the same number of <code>td</code>s, or cells, in each row or your table is going to look wonky.</p>
+
+    <p>Usually in our code we prefer to keep each element on its own line, for our own sanity, unless it is a simple inline element like <code>&lt;em&gt;</code> or <code>&lt;small&gt;</code> or <code>&lt;span&gt;</code>; so tables usually look like this:</p>
+
+    <pre>
+    <code>&lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Andrew Luck&lt;/td&gt;
+        &lt;td&gt;Quarterback&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Wes Welker&lt;/td&gt;
+        &lt;td&gt;Wide Receiver&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Matt Forte&lt;/td&gt;
+        &lt;td&gt;Running Back&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;</code></pre>
+
+    <p>You can also use <code>&lt;th&gt;</code> (table heading) elements instead of <code>&lt;td&gt;</code> for cells which represent column headings:</p>
+
+    <pre>
+    <code>&lt;table&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Player&lt;/th&gt;
+        &lt;th&gt;Position&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Andrew Luck&lt;/td&gt;
+        &lt;td&gt;Quarterback&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Wes Welker&lt;/td&gt;
+        &lt;td&gt;Wide Receiver&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Matt Forte&lt;/td&gt;
+        &lt;td&gt;Running Back&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;</code></pre>
+
+    <p>which produces</p>
+
+    <p>
+      <table>
+        <tr>
+          <th>Player</th>
+          <th>Position</th>
+        </tr>
+        <tr>
+          <td>Andrew Luck</td>
+          <td>Quarterback</td>
+        </tr>
+        <tr>
+          <td>Wes Welker</td>
+          <td>Wide Receiver</td>
+        </tr>
+        <tr>
+          <td>Matt Forte</td>
+          <td>Running Back</td>
+        </tr>
+      </table>
+    </p>
+
+    <p>Finally, and optionally, you can use <code>&lt;thead&gt;</code> to group rows containing headings and <code>&lt;tbody&gt;</code> to group rows containing data:</p>
+
+    <pre>
+    <code>&lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Player&lt;/th&gt;
+          &lt;th&gt;Position&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Andrew Luck&lt;/td&gt;
+          &lt;td&gt;Quarterback&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Wes Welker&lt;/td&gt;
+          &lt;td&gt;Wide Receiver&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Matt Forte&lt;/td&gt;
+          &lt;td&gt;Running Back&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+
+    <p>The last thing to note is, if you need to "merge" two cells together, you can make one cell and give it the attribute <code>colspan="2"</code>:</p>
+
+    <pre>
+    <code>&lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th colspan="2"&gt;My Fantasy Team&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Player&lt;/th&gt;
+          &lt;th&gt;Position&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Andrew Luck&lt;/td&gt;
+          &lt;td&gt;Quarterback&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Wes Welker&lt;/td&gt;
+          &lt;td&gt;Wide Receiver&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Matt Forte&lt;/td&gt;
+          &lt;td&gt;Running Back&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;</code></pre>
+
+    <p>which produces</p>
+
+    <p>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">My Fantasy Team</th>
+          </tr>
+          <tr>
+            <th>Player</th>
+            <th>Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Andrew Luck</td>
+            <td>Quarterback</td>
+          </tr>
+          <tr>
+            <td>Wes Welker</td>
+            <td>Wide Receiver</td>
+          </tr>
+          <tr>
+            <td>Matt Forte</td>
+            <td>Running Back</td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+
+    <p>You can similarly "merge" a cell with cells below in the same column, but you use the <code>rowspan=""</code> attribute instead. Then make sure you have one less <code>&lt;td&gt;</code> in the rows below (however many you chose to span) so that everything still adds up right.</p>
+
+    <hr>
+  </div>
+</body>
+</html>
